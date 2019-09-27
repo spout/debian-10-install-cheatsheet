@@ -191,3 +191,40 @@ wget -O /var/www/adminer.php https://www.adminer.org/latest.php
 sudo chmod +x /usr/bin/adminer-update
 sudo adminer-update
 ```
+
+## CURL
+```bash
+sudo apt install curl
+```
+
+## pip
+```bash
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo python get-pip.py
+```
+
+## Pipenv
+```bash
+pip install --user pipenv
+
+nano ~/.profile
+export PATH="$PATH:~/.local/bin"
+
+source ~/.profile
+```
+
+## Git
+```bash
+sudo apt install git
+```
+
+## pyenv
+```bash
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
+nano ~/.bashrc
+
+export PATH="/home/spout/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+```
