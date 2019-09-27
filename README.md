@@ -255,3 +255,74 @@ cd jpegoptim-1.4.6
 make
 sudo make install
 ```
+
+## TeamSpeak
+https://www.vultr.com/docs/how-to-install-teamspeak-3-server-on-debian-9-stretch
+
+```bash
+sudo adduser --disabled-login teamspeak
+sudo su teamspeak
+cd
+wget https://files.teamspeak-services.com/releases/server/3.9.1/teamspeak3-server_linux_amd64-3.9.1.tar.bz2
+tar xvf teamspeak3-server_linux_amd64-3.9.1.tar.bz2
+rm teamspeak3-server_linux_amd64-3.9.1.tar.bz2
+cd teamspeak3-server_linux_amd64
+touch .ts3server_license_accepted
+```
+
+```bash
+sudo nano /etc/init.d/teamspeak
+```
+
+```bash
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:         teamspeak
+# Required-Start:   $local_fs $network
+# Required-Stop:    $local_fs $network
+# Default-Start:    2 3 4 5
+# Default-Stop:     0 1 6
+# Description:      Teamspeak 3 Server
+### END INIT INFO
+
+######################################
+# Customize values for your needs: "User"; "DIR"
+
+USER="teamspeak"
+DIR="/home/teamspeak/teamspeak3-server_linux_amd64"
+
+###### Teamspeak 3 server start/stop script ######
+
+case "$1" in
+start)
+su $USER -c "${DIR}/ts3server_startscript.sh start"
+;;
+stop)
+su $USER -c "${DIR}/ts3server_startscript.sh stop"
+;;
+restart)
+su $USER -c "${DIR}/ts3server_startscript.sh restart"
+;;
+status)
+su $USER -c "${DIR}/ts3server_startscript.sh status"
+;;
+*)
+echo "Usage: {start|stop|restart|status}" >&2
+exit 1
+;;
+esac
+exit 0
+```
+
+```bash
+sudo chmod +x /etc/init.d/teamspeak
+sudo update-rc.d teamspeak defaults
+
+sudo service teamspeak start
+```
+
+```bash
+sudo ufw allow 9987/udp
+sudo ufw allow 30033/tcp
+sudo ufw allow 10011/tcp
+```
