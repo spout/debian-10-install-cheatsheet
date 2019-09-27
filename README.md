@@ -381,3 +381,41 @@ ssl_session_cache shared:SSL:10m;
 ssl_dhparam /etc/ssl/private/dhparams.pem;
 add_header Strict-Transport-Security "max-age=31536000; includeSubdomains; preload";
 ```
+
+## Supervisor
+```bash
+sudo apt install supervisor
+```
+
+## Python libs
+
+## Dev
+```bash
+sudo apt install python-dev
+sudo apt install python3-dev
+```
+
+### MySQL
+```bash
+sudo apt install default-libmysqlclient-dev
+```
+
+### Pillow (jpeg, tiff, ...):
+```bash
+sudo apt install libtiff5-dev libjpeg62-turbo-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev
+```
+
+### CURL
+```bash
+sudo apt install libcurl4-openssl-dev
+```
+
+### lxml
+```bash
+sudo apt install libxml2-dev libxslt1-dev
+```
+
+### Cryptography
+```bash
+sudo apt install libffi-dev
+```
