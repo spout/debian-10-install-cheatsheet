@@ -120,3 +120,38 @@ mysql -u root -p
 ```bash
 sudo apt install php7.3-fpm php7.3-gd php7.3-mysql php7.3-pgsql php7.3-sqlite3 php7.3-mbstring php7.3-xml php7.3-intl
 ```
+
+## nginx
+```bash
+sudo apt install nginx
+
+sudo nano /etc/nginx/sites-available/default
+
+root /var/www;
+index index.php index.html index.htm
+
+# Uncomment location ~\.php$ {
+# Uncomment include snippets/fastcgi-php.conf;
+# Uncomment fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+
+sudo service nginx reload
+
+sudo chown www-data:www-data /var/www
+sudo chmod g+w /var/www
+
+# Gzip
+sudo nano /etc/nginx/nginx.conf
+# Uncomment:
+gzip_vary on;
+gzip_proxied any;
+gzip_comp_level 6;
+gzip_buffers 16 8k;
+gzip_http_version 1.1;
+gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
+sudo nano /etc/nginx/nginx.conf
+# Uncomment:
+server_tokens off;
+
+sudo service nginx reload
+```
