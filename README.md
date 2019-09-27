@@ -180,3 +180,14 @@ sudo apt install redis-server
 ```bash
 sudo apt install clamav clamav-freshclam
 ```
+
+## Adminer
+```bash
+sudo nano /usr/bin/adminer-update
+
+#!/bin/bash
+wget -O /var/www/adminer.php https://www.adminer.org/latest.php
+
+sudo chmod +x /usr/bin/adminer-update
+sudo adminer-update
+```
