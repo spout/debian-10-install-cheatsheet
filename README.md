@@ -228,3 +228,18 @@ export PATH="/home/spout/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ```
+
+## ZIP
+```bash
+sudo apt install zip unzip
+```
+
+## OptiPNG
+```bash
+wget http://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-0.7.7/optipng-0.7.7.tar.gz
+tar -xvzf optipng-0.7.7.tar.gz
+cd optipng-0.7.7
+./configure
+make
+sudo make install
+```
