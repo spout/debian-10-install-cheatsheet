@@ -170,3 +170,8 @@ locale -a
 ```bash
 sudo apt install gettext
 ```
+
+## Redis
+```bash
+sudo apt install redis-server
+```
