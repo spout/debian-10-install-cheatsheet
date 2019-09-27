@@ -474,3 +474,96 @@ sudo mv GeoLite2-City_20190924/GeoLite2-City.mmdb .
 sudo rm -rf GeoLite2-City_20190924/
 sudo rm GeoLite2-City.tar.gz
 ```
+
+## Backup-Manager
+https://documentation.online.net/fr/dedicated-server/tutorials/backup/configure-backup/start
+
+```bash
+wget https://github.com/sukria/Backup-Manager/archive/master.zip -O backup-manager.zip
+unzip backup-manager.zip
+cd Backup-Manager-master/
+sudo make install
+sudo cp /usr/local/share/backup-manager/backup-manager.conf.tpl /etc/backup-manager.conf
+
+sudo nano /etc/backup-manager.conf
+
+export BM_ARCHIVE_METHOD="tarball mysql pgsql"
+
+BM_TARBALL_TARGETS[2]="/home"
+BM_TARBALL_TARGETS[3]="/var/www"
+
+export BM_MYSQL_ADMINPASS="secret"
+export BM_MYSQL_DBEXCLUDE="information_schema mysql performance_schema"
+
+export BM_PGSQL_ADMINLOGIN="postgres"
+export BM_PGSQL_ADMINPASS="secret"
+
+export BM_UPLOAD_METHOD="ftp"
+
+export BM_UPLOAD_FTP_USER="secret"
+export BM_UPLOAD_FTP_PASSWORD="secret"
+export BM_UPLOAD_FTP_HOSTS="secret"
+export BM_UPLOAD_FTP_DESTINATION="/"
+
+sudo nano /etc/cron.daily/backup-manager
+
+#!/bin/sh
+test -x /usr/local/sbin/backup-manager || exit 0
+/usr/local/sbin/backup-manager
+
+sudo chmod +x /etc/cron.daily/backup-manager
+
+sudo /usr/local/sbin/backup-manager
+
+# Fix /usr/bin/backup-manager-purge not found
+sudo ln -s /usr/local/bin/backup-manager-purge /usr/bin/backup-manager-purge
+```
+
+```bash
+sudo nano /etc/backup-manager-email
+```
+
+```php
+#!/usr/bin/php
+<?php
+$emails = ['spam@gmail.com'];
+$archives = '/var/archives';
+$hostname = gethostname();
+$message = [];
+$totalSize = [];
+
+function byteconvert($bytes) 
+{
+    $symbol = array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+    $exp = floor(log($bytes) / log(1024));
+    return sprintf('%.2f ' . $symbol[$exp], ($bytes / pow(1024, floor($exp))));
+}
+
+$ymd = date('Ymd');
+
+foreach (glob("$archives/*") as $filename) {
+    $basename = basename($filename);
+    if (strpos($basename, ".$ymd.") !== false) {
+        $size = filesize($filename);
+        $totalSize[] = $size;
+        $message[] = sprintf('%s (%s)', $basename, byteconvert($size));
+    }
+}
+
+$message[] = '';
+$message[] = sprintf('Total: %s', byteconvert(array_sum($totalSize)));
+
+foreach ((array) $emails as $email) {
+    mail($email, "[$hostname] Backup OK", implode("\n", $message));
+}
+```
+
+```bash
+sudo chmod +x /etc/backup-manager-email
+
+sudo nano /etc/backup-manager.conf
+
+export BM_POST_BACKUP_COMMAND="/etc/backup-manager-email"
+
+sudo apt install sendmail
+```
