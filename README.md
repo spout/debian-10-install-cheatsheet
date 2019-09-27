@@ -65,3 +65,19 @@ action = %(action_mwl)s
 
 sudo service fail2ban restart
 ```
+
+## Mail
+```bash
+sudo apt install exim4-config
+sudo dpkg-reconfigure exim4-config
+```
+
+1. internet site; mail is sent and received directly using SMTP
+2. System mail name: ENTER
+3. IP-addresses: ENTER
+4. Other destinations: ENTER
+5. Domains to relay mail for: ENTER
+6. Machines to relay mail for: ENTER
+7. Keep number of DNS-queries minimal: NO
+8. Delivery method: mbox format
+9. Split configuration into small files: NO
