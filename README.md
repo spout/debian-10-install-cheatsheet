@@ -18,3 +18,11 @@ sudo apt upgrade
 sudo apt install byobu
 byobu
 ```
+
+## SSH
+```bash
+sudo nano /etc/ssh/sshd_config
+Port 7022
+
+sudo service ssh restart
+```
