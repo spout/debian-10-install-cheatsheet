@@ -567,3 +567,23 @@ export BM_POST_BACKUP_COMMAND="/etc/backup-manager-email"
 
 sudo apt install sendmail
 ```
+
+## netdata
+https://docs.netdata.cloud/packaging/installer/#one-line-installation
+https://docs.netdata.cloud/docs/running-behind-nginx/#why-nginx
+
+## NCurses Disk Usage
+```bash
+sudo apt install ncdu
+```
+
+## Node.js
+```bash
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+## htop
+```bash
+sudo apt install htop
+```
