@@ -50,3 +50,18 @@ sudo ufw show added
 sudo ufw enable
 sudo ufw status
 ```
+
+## fail2ban
+```bash
+sudo apt install fail2ban
+sudo nano /etc/fail2ban/jail.conf
+
+destemail = votremail@domain.com
+action = %(action_mwl)s
+
+# action_ => simple ban
+# action_mw => ban et envoi de mail
+# action_mwl => ban, envoi de mail accompagné des logs
+
+sudo service fail2ban restart
+```
