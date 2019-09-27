@@ -463,3 +463,14 @@ GRANT ALL ON SCHEMA public TO public;
 # Restore backup
 psql -d database_name -U spout -f backup.sql
 ```
+
+## GeoLite2
+```bash
+sudo mkdir /usr/share/GeoLite2
+cd /usr/share/GeoLite2
+sudo wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz
+sudo tar -xvzf GeoLite2-City.tar.gz
+sudo mv GeoLite2-City_20190924/GeoLite2-City.mmdb .
+sudo rm -rf GeoLite2-City_20190924/
+sudo rm GeoLite2-City.tar.gz
+```
