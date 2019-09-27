@@ -81,3 +81,13 @@ sudo dpkg-reconfigure exim4-config
 7. Keep number of DNS-queries minimal: NO
 8. Delivery method: mbox format
 9. Split configuration into small files: NO
+
+## DEB.SURY.ORG
+https://deb.sury.org/
+
+```bash
+sudo apt-get -y install apt-transport-https lsb-release ca-certificates
+sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+sudo sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+sudo apt-get update
+```
