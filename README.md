@@ -243,3 +243,15 @@ cd optipng-0.7.7
 make
 sudo make install
 ```
+
+## Jpegoptim
+```bash
+sudo apt install libjpeg-dev
+
+wget https://www.kokkonen.net/tjko/src/jpegoptim-1.4.6.tar.gz
+tar -xvzf jpegoptim-1.4.6.tar.gz
+cd jpegoptim-1.4.6
+./configure
+make
+sudo make install
+```
