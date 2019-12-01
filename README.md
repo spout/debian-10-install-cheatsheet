@@ -133,7 +133,7 @@ index index.php index.html index.htm
 
 # Uncomment location ~\.php$ {
 # Uncomment include snippets/fastcgi-php.conf;
-# Uncomment fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+# Uncomment fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
 
 sudo service nginx reload
 
