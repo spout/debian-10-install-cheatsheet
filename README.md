@@ -17,6 +17,9 @@ sudo apt upgrade
 ```bash
 sudo apt install byobu
 byobu
+
+# Launch auto at login
+byobu-enable
 ```
 
 ## SSH
