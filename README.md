@@ -492,7 +492,7 @@ sudo wget https://raw.githubusercontent.com/spout/debian-10-install-cheatsheet/m
 sudo nano /opt/backup.php
 sudo chmod +x /opt/backup.php
 sudo ln -s /opt/backup.php /etc/cron.daily/backup
-sudo run-parts --test /etc/cron.daily/
+sudo run-parts --test /etc/cron.daily
 ```
 
 ## netdata
