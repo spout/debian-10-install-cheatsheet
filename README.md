@@ -488,10 +488,10 @@ curl https://rclone.org/install.sh | sudo bash
 ```
 
 ```bash
-sudo wget https://raw.githubusercontent.com/spout/debian-10-install-cheatsheet/master/backup.php -O /root/backup.php
-sudo nano /root/backup.php
-sudo chmod +x /root/backup.php
-sudo ln -s /root/backup.php /etc/cron.daily/backup
+sudo wget https://raw.githubusercontent.com/spout/debian-10-install-cheatsheet/master/backup.php -O /opt/backup.php
+sudo nano /opt/backup.php
+sudo chmod +x /opt/backup.php
+sudo ln -s /opt/backup.php /etc/cron.daily/backup
 sudo run-parts --test /etc/cron.daily/
 ```
 
