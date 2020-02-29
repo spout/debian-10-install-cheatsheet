@@ -362,6 +362,9 @@ sudo nginx -t
 sudo service nginx reload
 
 sudo certbot certonly --webroot -w /var/www/ -d example.com -d www.example.com --rsa-key-size 4096
+# Wildcard
+certbot certonly --manual --preferred-challenges dns --register -d example.com -d *.example.com
+
 sudo certbot renew --dry-run
 
 sudo crontab -e
