@@ -345,7 +345,6 @@ sudo chmod g+w /var/www
 
 ## HTTPS / Let's encrypt
 https://certbot.eff.org/lets-encrypt/debianbuster-other
-https://certbot-dns-ovh.readthedocs.io/en/stable/
 
 ```bash
 sudo ufw allow https
@@ -388,6 +387,13 @@ ssl_prefer_server_ciphers on;
 ssl_session_cache shared:SSL:10m;
 ssl_dhparam /etc/ssl/private/dhparams.pem;
 add_header Strict-Transport-Security "max-age=31536000; includeSubdomains; preload";
+```
+
+### Certbot OVH plugin (wildcard)
+https://certbot-dns-ovh.readthedocs.io/en/stable/
+
+```bash
+sudo apt install python3-certbot-dns-ovh
 ```
 
 ## Supervisor
