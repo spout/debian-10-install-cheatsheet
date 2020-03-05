@@ -394,6 +394,8 @@ https://certbot-dns-ovh.readthedocs.io/en/stable/
 
 ```bash
 sudo apt install python3-certbot-dns-ovh
+
+sudo certbot certonly --dns-ovh --dns-ovh-credentials /root/.secrets/certbot/ovh.ini --dns-ovh-propagation-seconds 60 -d example.com -d *.example.com
 ```
 
 ## Supervisor
