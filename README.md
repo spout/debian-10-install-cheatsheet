@@ -395,6 +395,15 @@ https://certbot-dns-ovh.readthedocs.io/en/stable/
 ```bash
 sudo apt install python3-certbot-dns-ovh
 
+mkdir -p /root/.secrets/certbot
+nano /root/.secrets/certbot/ovh.ini
+
+# OVH API credentials used by Certbot
+dns_ovh_endpoint = ovh-eu
+dns_ovh_application_key = MDAwMDAwMDAwMDAw
+dns_ovh_application_secret = MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAw
+dns_ovh_consumer_key = MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAw
+
 sudo certbot certonly --dns-ovh --dns-ovh-credentials /root/.secrets/certbot/ovh.ini --dns-ovh-propagation-seconds 60 -d example.com -d *.example.com
 ```
 
