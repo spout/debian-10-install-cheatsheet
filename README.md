@@ -345,6 +345,7 @@ sudo chmod g+w /var/www
 
 ## HTTPS / Let's encrypt
 https://certbot.eff.org/lets-encrypt/debianbuster-other
+https://certbot-dns-ovh.readthedocs.io/en/stable/
 
 ```bash
 sudo ufw allow https
