@@ -368,7 +368,7 @@ certbot certonly --manual --preferred-challenges dns --register -d example.com -
 sudo certbot renew --dry-run
 
 sudo crontab -e
-0 */12 * * * certbot renew --quiet
+0 */12 * * * certbot renew --quiet --post-hook "service nginx reload"
 
 sudo openssl dhparam -out /etc/ssl/private/dhparams.pem 4096
 
