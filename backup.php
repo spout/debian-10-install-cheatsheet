@@ -101,7 +101,7 @@ if (!empty($config['destination']['remotes'])) {
     foreach ($config['destination']['remotes'] as $remote) {
         logLine("Rclone sync to '{$remote}'");
 
-        exec("rclone sync {$config['destination']['local']} {$remote}");
+        exec("rclone sync --delete-before {$config['destination']['local']} {$remote}");
     }
 }
 
