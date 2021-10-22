@@ -534,3 +534,16 @@ sudo apt-get install -y nodejs
 ```bash
 sudo apt install htop
 ```
+
+## Java 17 LTS
+https://www.linuxuprising.com/2021/09/how-to-install-oracle-java-17-lts-on.html
+
+```sh
+su -
+echo "deb http://ppa.launchpad.net/linuxuprising/java/ubuntu focal main" | tee /etc/apt/sources.list.d/linuxuprising-java.list
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 73C3DB2A
+apt update
+exit
+
+sudo apt install oracle-java17-installer --install-recommends
+```
