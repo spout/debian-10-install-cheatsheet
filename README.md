@@ -121,7 +121,7 @@ mysql -u root -p
 
 ## PHP
 ```bash
-sudo apt install php7.4-fpm php7.4-gd php7.4-mysql php7.4-pgsql php7.4-sqlite3 php7.4-mbstring php7.4-xml php7.4-intl php7.4-curl php7.4-zip php7.4-soap php7.4-redis
+sudo apt install php8.2-fpm php8.2-gd php8.2-mysql php8.2-pgsql php8.2-sqlite3 php8.2-mbstring php8.2-xml php8.2-intl php8.2-curl php8.2-zip php8.2-soap php8.2-redis
 ```
 
 ## nginx
