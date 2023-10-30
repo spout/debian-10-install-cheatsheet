@@ -343,12 +343,19 @@ sudo chmod g+w /var/www
 ```
 
 ## HTTPS / Let's encrypt
-https://certbot.eff.org/lets-encrypt/debianbuster-other
+https://certbot.eff.org/instructions?ws=other&os=debianbuster
 
 ```bash
 sudo ufw allow https
+```
 
-sudo apt-get install certbot
+### Install certbot via snapd
+
+https://snapcraft.io/docs/installing-snap-on-debian
+
+```bash
+sudo apt install snapd
+sudo snap install --classic certbot
 
 nano /etc/nginx/sites-available/example.com
 
