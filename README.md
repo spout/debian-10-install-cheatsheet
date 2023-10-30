@@ -356,6 +356,9 @@ https://snapcraft.io/docs/installing-snap-on-debian
 ```bash
 sudo apt install snapd
 sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo snap set certbot trust-plugin-with-root=ok
+
 
 nano /etc/nginx/sites-available/example.com
 
@@ -399,7 +402,7 @@ add_header Strict-Transport-Security "max-age=31536000; includeSubdomains; prelo
 https://certbot-dns-ovh.readthedocs.io/en/stable/
 
 ```bash
-sudo apt install python3-certbot-dns-ovh
+sudo snap install certbot-dns-ovh
 
 mkdir -p /root/.secrets/certbot
 nano /root/.secrets/certbot/ovh.ini
